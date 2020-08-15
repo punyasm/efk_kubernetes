@@ -1,0 +1,33 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: kube-logging
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: insights-pv
+  namespace: kube-logging
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/insights/logs"
+---    
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: insights-pvc
+  namespace: kube-logging
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi          
