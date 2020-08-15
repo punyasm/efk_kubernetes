@@ -10,15 +10,15 @@ Fluentd is a popular open-source data collector, and is used to collect, transfo
 
 ### Installation 
 
-Step 1: Create Namespace and storage in K8 cluster
+#### Step 1: Create Namespace and storage in K8 cluster
 > kubectl create -f kube-logging.yaml
-Step 2: Create StorageClass and PersistentVolume for EFK
+#### Step 2: Create StorageClass and PersistentVolume for EFK
 > kubectl create -f efk-storage.yml
-Step 3: Create StatefulSet Pods and services for elastic search cluster 
+#### Step 3: Create StatefulSet Pods and services for elastic search cluster 
 > kubectl create -f elasticsearch_svc.yaml
-step 4: Create DaemonSet, ServiceAccount, ClusterRole for fluentd
+#### step 4: Create DaemonSet, ServiceAccount, ClusterRole for fluentd
 > kubectl create -f fluentd.yaml
-Step 5: Create service and deployment for Kibana
+#### Step 5: Create service and deployment for Kibana
 > kubectl create -f kibana.yml
 
 ### Note
