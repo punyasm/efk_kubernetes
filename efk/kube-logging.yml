@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: insights-pv
+  name: my-pv
   namespace: kube-logging
   labels:
     type: local
@@ -17,12 +17,12 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/insights/logs"
+    path: "/efk/logs"
 ---    
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: insights-pvc
+  name: my-pvc
   namespace: kube-logging
 spec:
   storageClassName: manual
